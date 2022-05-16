@@ -21,7 +21,8 @@ use Carbon\Carbon;
     });
 
     Route::get('events', function() {
-        return Event::all();
+        $data['event']=Event::all();
+        return view('/eventlist',$data);
     });
 
     Route::get('events/active-events', function() {

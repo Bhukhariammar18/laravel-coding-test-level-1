@@ -15,10 +15,8 @@ use App\Http\Controllers\LaravelLiveCodingTestController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('eventlist');
 });
-
-Route::resource('/api/v1/events', LaravelLiveCodingTestController::class);
 
 Auth::routes();
 

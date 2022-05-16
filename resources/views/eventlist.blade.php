@@ -16,7 +16,7 @@
                             <a href="/mvc/register" class="btn btn-success btn-sm mb-1" style="float:right">Add Phone Number</a>
                         </div>
                 
-                        <table class="table table-bordered table-striped" id="phone">
+                        <table class="table table-bordered table-striped" id="event">
                             <thead class="bg-navy">
                                 <th class="text-center" style="width:5%">No</th>
                                 <th class="text-center" style="width:30%">Event Name</th>
@@ -39,7 +39,7 @@
                                                 <a href="" title="edit"  val="">
                                                     <i class="far fa-edit"></i>
                                                 </a>
-                                                <a href="" title="Delete" onclick=" return confirm('Delete Record?')">
+                                                <a href="/api/events/{{$ev->id}}" title="Delete" onclick=" return confirm('Delete Record?')">
                                                     <i class="fas fa-trash text-danger"></i>
                                                 </a>
                                             </td>
@@ -68,7 +68,7 @@
     <script type="text/javascript" src="{{ asset('/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
     <script>
         $(document).ready(function() {
-            $('#phone').DataTable({
+            $('#event').DataTable({
                 "language": {
                     "lengthMenu": "Show _MENU_ records each page",
                     "zeroRecords": "No records",

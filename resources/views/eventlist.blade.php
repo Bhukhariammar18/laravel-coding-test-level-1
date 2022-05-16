@@ -13,7 +13,7 @@
                     </div>
                     <div class="card-body">
                         <div>
-                            <a href="/mvc/register" class="btn btn-success btn-sm mb-1" style="float:right">Add Phone Number</a>
+                            <a href="" class="btn btn-success btn-sm mb-1" style="float:right">Add Event</a>
                         </div>
                 
                         <table class="table table-bordered table-striped" id="event">
@@ -23,7 +23,11 @@
                                 <th class="text-center" style="width:10%">Slug</th>
                                 <th class="text-center" style="width:10%">Start At</th>
                                 <th class="text-center" style="width:5%">End At</th>
-                                <th class="text-center" style="width:5%">Action</th>
+                                @auth
+                                    <th class="text-center" style="width:5%">Action</th>
+                                @else
+
+                                @endauth
                             </thead>
                             <tbody>
                                 @php $no = 1 @endphp
@@ -35,14 +39,18 @@
                                             <td class="text-center">{{$ev->slug}}</td>
                                             <td class="text-center">{{$ev->startAt}}</td>
                                             <td class="text-center">{{$ev->endAt}}</td>
-                                            <td class="text-center">
-                                                <a href="" title="edit"  val="">
-                                                    <i class="far fa-edit"></i>
-                                                </a>
-                                                <a href="/api/events/{{$ev->id}}" title="Delete" onclick=" return confirm('Delete Record?')">
-                                                    <i class="fas fa-trash text-danger"></i>
-                                                </a>
-                                            </td>
+                                            @auth
+                                                <td class="text-center">
+                                                    <a href="" title="edit"  val="">
+                                                        <i class="far fa-edit"></i>
+                                                    </a>
+                                                    <a href="/api/events/{{$ev->id}}" title="Delete" onclick=" return confirm('Delete Record?')">
+                                                        <i class="fas fa-trash text-danger"></i>
+                                                    </a>
+                                                </td>
+                                            @else
+                                            @endauth
+                                            
                                         </tr>
                                     @endforeach
                                 @else
